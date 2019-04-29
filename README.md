@@ -41,6 +41,7 @@ catkin_make
 Make changes
 ```
 git add <files/dirs changed>
+git commit -m  "<commit message>"
 git push -u origin master
 ```
 
