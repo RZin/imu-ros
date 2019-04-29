@@ -50,5 +50,5 @@ git push -u origin master
 * imu_rs.launch: record imu plus realsense 435 data 
 
 ## todo 
-* add udev rules for imu data sctreaming device (currently PORT = "/dev/ttyACM0")
+* Add udev rules for imu data sctreaming device (currently PORT = "/dev/ttyACM0")
 * Think what value should be used if "-" or "@" or " " is recieved from imu
