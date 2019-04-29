@@ -51,4 +51,4 @@ git push -u origin master
 
 ## todo 
 * Add udev rules for imu data sctreaming device (currently PORT = "/dev/ttyACM0")
-* Think what value should be used if "-" or "@" or " " is recieved from imu
+* Think what value should be used if "-" or "@" or " " is recieved from imu (currently 0.0)
