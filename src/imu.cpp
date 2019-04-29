@@ -10,10 +10,11 @@
 
 // constants
 std::string TOPIC = "imu";
-std::string PORT = "/dev/ttyACM0";
-const int BAUD = 115200;
-int LINE_LENGHT = 65;
-int RATE = 10000;
+std::string PORT = "/dev/ttyACM0"; // port name
+const int BAUD = 115200; // for incoming data
+int LINE_LENGHT = 65; // lengh of string line coming from imu
+int RATE = 10000; // frequency to publish at
+int TIMOUT = 10; // delay in ms
 
 std::vector<std::string> split(std::string string_line, char delimeter) {
     // splits line into a vector of str values
@@ -35,14 +36,14 @@ std::vector<double> strings_to_doubles_vector(std::vector<std::string> strings_v
         try {
             imu_val = std::stod(strings_vector[i], &sz); }
         catch(std::exception& ia) {
-            imu_val = 0.0;} // todo what value should I send if I recieve "-" or "@" or " " from imu ?
+            imu_val = 0.0;} // todo what value should be used if "-" or "@" or " " is recieved from imu ?
         doubles_vector.push_back(imu_val);
     }
     return doubles_vector;
 }
 
 void publish_imu(ros::Publisher imu_pub, std::vector<double> imu_vector) {
-    // publish_imu data w in rad/s vector of doubles
+    // publish_imu data [a in m/s^2] and [w in rad/s]
     sensor_msgs::Imu imu_msg;
     imu_msg.header.frame_id = TOPIC;
     imu_msg.header.stamp = ros::Time::now();
@@ -60,6 +61,7 @@ void publish_imu(ros::Publisher imu_pub, std::vector<double> imu_vector) {
 
 
 int main(int argc, char **argv) {
+
     // Initialize the ROS system and become a node.
     ros::init(argc, argv, "publish_velocity");
     ros::NodeHandle nh;
@@ -68,7 +70,7 @@ int main(int argc, char **argv) {
     ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>(TOPIC, 10000);
 
     // open port, baudrate, timeout in milliseconds
-    serial::Serial my_serial(PORT, BAUD, serial::Timeout::simpleTimeout(250));
+    serial::Serial my_serial(PORT, BAUD, serial::Timeout::simpleTimeout(TIMOUT));
 
     // check if serial port open
     std::cout << "Is the serial port open?";
