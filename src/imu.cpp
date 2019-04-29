@@ -1,20 +1,20 @@
 // This program publishes imu data from usb port
 #include <ros/ros.h>
-#include <sensor_msgs/Imu.h>// sensor_msgs::Imu
-#include <string>           // std::string std::stod
-#include <iostream>         // std::stringstream std::cout
-#include <serial/serial.h>  // serial::Serial serial::Timeout::simpleTimeout
-#include <vector>           // std::vector
-#include <sstream>          // std::stringstream
-#include <exception>        // std::exception
+#include <sensor_msgs/Imu.h>        // sensor_msgs::Imu
+#include <string>                   // std::string std::stod
+#include <iostream>                 // std::stringstream std::cout
+#include <serial/serial.h>          // serial::Serial serial::Timeout::simpleTimeout
+#include <vector>                   // std::vector
+#include <sstream>                  // std::stringstream
+#include <exception>                // std::exception
 
 // constants
 std::string TOPIC = "imu";
-std::string PORT = "/dev/ttyACM0"; // port name
-const int BAUD = 115200; // for incoming data
-int LINE_LENGHT = 65; // lengh of string line coming from imu
-int RATE = 10000; // frequency to publish at
-int TIMOUT = 10; // delay in ms
+std::string PORT = "/dev/ttyACM0";  // port name
+const int BAUD = 115200;            // for incoming data
+int LINE_LENGHT = 65;               // lengh of string line coming from imu
+int RATE = 10000;                   // frequency to publish at
+int TIMOUT = 10;                    // delay in ms
 
 std::vector<std::string> split(std::string string_line, char delimeter) {
     // splits line into a vector of str values
