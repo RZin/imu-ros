@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
-
+target_link_libraries
 add_executable(imu src/imu.cpp)
 
-target_link_libraries(imu ${catkin_LIBRARIES})
+(imu ${catkin_LIBRARIES})

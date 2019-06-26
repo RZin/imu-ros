@@ -63,7 +63,7 @@ void publish_imu(ros::Publisher imu_pub, std::vector<double> imu_vector) {
 int main(int argc, char **argv) {
 
     // Initialize the ROS system and become a node.
-    ros::init(argc, argv, "publish_velocity");
+    ros::init(argc, argv, "IMU");
     ros::NodeHandle nh;
 
     // Create a publisher object.
