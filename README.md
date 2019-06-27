@@ -33,7 +33,8 @@ Create a new repository, either at the group or private.
 For compiling on catkin, first, we create a symbolic link at the ROS workspace:
 ```
 roscd && cd ../src
-ln -s /path/to/serial/directory </path/to/your/project>/serial
+ln -s /path/to/serial/directory /path/to/your/project/serial
+(in our case ln -s /home/username/serial /home/username/catkin_ws/src/serial
 cd ..
 catkin_make 
 ```
