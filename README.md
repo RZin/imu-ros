@@ -33,7 +33,7 @@ Create a new repository, either at the group or private.
 For compiling on catkin, first, we create a symbolic link at the ROS workspace:
 ```
 roscd && cd ../src
-ln -n /path/to/serial /path/to/your/project
+ln -s /path/to/serial/directory </path/to/your/project>/serial
 cd ..
 catkin_make 
 ```
@@ -51,4 +51,4 @@ git push -u origin master
 
 ## todo 
 * Add udev rules for imu data sctreaming device (currently PORT = "/dev/ttyACM0")
-* Think what value should be used if "-" or "@" or " " is recieved from imu (currently 0.0)
+* Think what value should be used if "-" or "@" or " " is recieved from imu (currently 0.0, but that msg should be disregarded at all)
