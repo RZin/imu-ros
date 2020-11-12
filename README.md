@@ -18,17 +18,9 @@ make install
 ```
 
 ### Get IMU Project
-Clone the project from CDISE bitbucket:
+Clone the project from repository:
 
-`git clone ssh://git@cdise-bitbucket.skoltech.ru:7999/mr/imu.git`
-
-We need to disable the certificate because server certificate verifications fails.
-
-`git remote remove origin`
-
-Create a new repository, either at the group or private.
-
-`git remote add origin ssh://git@cdise-bitbucket.skoltech.ru:7999/mr/imu.git`
+`git clone https://github.com/RZin/imu-ros.git`
 
 For compiling on catkin, first, we create a symbolic link at the ROS workspace:
 ```
