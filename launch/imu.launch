@@ -4,7 +4,7 @@
 
   <group if="$(arg to_record)">
     <!-- with record-->
-    <node pkg="imu"
+    <node pkg="imu_ros"
           name="imu"
           type="imu" />
     <node pkg="rosbag"
@@ -15,7 +15,7 @@
   </group>
   <group unless="$(arg to_record)">
     <!-- no record-->
-    <node pkg="imu"
+    <node pkg="imu_ros"
           name="imu"
           type="imu" />
   </group>

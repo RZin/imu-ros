@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_imu) #TODO same name as in package.xml
+project(imu_ros)
 set (CMAKE_CXX_STANDARD 11)
 
 # ******************************************************************** 
@@ -16,7 +16,5 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
-target_link_libraries
 add_executable(imu src/imu.cpp)
-
-(imu ${catkin_LIBRARIES})
+target_link_libraries(imu ${catkin_LIBRARIES})
